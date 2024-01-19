@@ -13,13 +13,15 @@ def webhook_receiver():
     #Initializes the producer and identifies the docker server.
     #Sets the producer serializer to JSON
 #    producer = KafkaProducer(bootstrap_servers='my-cluster-kafka-bootstrap:9092',value_serializer=lambda v: json.dumps(v).encode('utf-8'))
-    producer = KafkaProducer(bootstrap_servers='172.30.2.176:9092',value_serializer=lambda v: json.dumps(v).encode('utf-8'))
+#    producer = KafkaProducer(bootstrap_servers='172.30.2.176:9092',value_serializer=lambda v: json.dumps(v).encode('utf-8'))
+    producer = KafkaProducer(bootstrap_servers='172.30.2.176:9092',value_serializer=lambda m: json.dumps(m).encode('ascii'))
 
     #Send a message to the kafka topic 'acs-topic'
     #passes the POST JSON body as the message
-    
+
+    producer.send('acs-topic', {'Simon': 'Delord'})
 #    producer.send('acs-topic', body)
-    producer.send('acs-topic', b"simon is an idiot")
+#    producer.send('acs-topic', b"simon is an idiot")
     #Closes the TCP stream to Kafka
     producer.close()
     #Returns a Complete string
