@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 def hello(): #hello() is registered to route /
     #Gets the POST body as a JSON object
-    print request.json
+    print(request.json)
     body = request.json
 
     #Bootstraps an instance of a Kafka producer.
