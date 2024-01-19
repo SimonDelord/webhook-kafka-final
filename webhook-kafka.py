@@ -7,7 +7,7 @@ def webhook_receiver():
     # Process the data and perform actions based on the event
     body = request.json
     print("Received webhook data:", body)
-    return jsonify({'message': 'Webhook received successfully'}), 200
+#    return jsonify({'message': 'Webhook received successfully'}), 200
 
     #Bootstraps an instance of a Kafka producer.
     #Initializes the producer and identifies the docker server.
@@ -19,7 +19,8 @@ def webhook_receiver():
     #Closes the TCP stream to Kafka
     producer.close()
     #Returns a Complete string
-    return "Complete"
+#    return "Complete"
+    return jsonify({'message': 'Webhook received successfully'}), 200
 if __name__ == '__main__':
 #    app.run(debug=True)
     app.run(debug=True,host='0.0.0.0',port=8001)
