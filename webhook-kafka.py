@@ -17,7 +17,9 @@ def webhook_receiver():
 
     #Send a message to the kafka topic 'acs-topic'
     #passes the POST JSON body as the message
-    producer.send('acs-topic', body)
+    
+#    producer.send('acs-topic', body)
+    producer.send('acs-topic', b"simon is an idiot")
     #Closes the TCP stream to Kafka
     producer.close()
     #Returns a Complete string
