@@ -18,7 +18,7 @@ def hello(): #hello() is registered to route /
     producer = KafkaProducer(bootstrap_servers='172.30.2.176:9092',value_serializer=lambda v: json.dumps(v).encode('utf-8'))
     #Send a message to the kafka topic 'test'
     #passes the POST JSON body as the message
-    producer.send('acs-topic', body)
+    producer.send('acs-topic-3', body)
     #Closes the TCP stream to Kafka
     producer.close()
     #Returns a Complete string
